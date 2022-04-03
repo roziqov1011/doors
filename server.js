@@ -59,7 +59,7 @@ const DoorsAlutex = sequelize.define('doorsalutex', {
 
 sequelize.sync({ force: false }).then(() => console.log("OK"))
 
-app.route('/akfa')
+app.route('/')
     .get(async(_, res) => {
         res.send(await DoorsAkfa.findAll())
     })
