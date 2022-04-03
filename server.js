@@ -89,34 +89,34 @@ app.route('/akfa')
         res.send("OK")
     })
 
-app.route('/alutex')
-    .get(async(_, res) => {
-        res.send(await DoorsAlutex.findAll())
-    })
-    .post(async(req, res) => {
-        const { name, year, materil } = req.body
-        const newUser = await DoorsAlutex.create({name, year, materil})
-        res.send(newUser)
-    })
-    .put(async(req, res) => {
-        const { name, year, materil, id } = req.body
-        const updatedUser = await DoorsAlutex.update({ name, year, materil}, {
-            where: {
-                id
-            }
-        })
-        console.log(updatedUser)
-        res.send("OK")
-    })
-    .delete(async(req, res) => {
-        const { id } = req.body
-        const deletedUser = await DoorsAlutex.destroy({
-            where: {
-                id
-            }
-        })
-        console.log(deletedUser)
-        res.send("OK")
-    })
+// app.route('/alutex')
+//     .get(async(_, res) => {
+//         res.send(await DoorsAlutex.findAll())
+//     })
+//     .post(async(req, res) => {
+//         const { name, year, materil } = req.body
+//         const newUser = await DoorsAlutex.create({name, year, materil})
+//         res.send(newUser)
+//     })
+//     .put(async(req, res) => {
+//         const { name, year, materil, id } = req.body
+//         const updatedUser = await DoorsAlutex.update({ name, year, materil}, {
+//             where: {
+//                 id
+//             }
+//         })
+//         console.log(updatedUser)
+//         res.send("OK")
+//     })
+//     .delete(async(req, res) => {
+//         const { id } = req.body
+//         const deletedUser = await DoorsAlutex.destroy({
+//             where: {
+//                 id
+//             }
+//         })
+//         console.log(deletedUser)
+//         res.send("OK")
+//     })
 
 app.listen(9000, console.log(9000))
